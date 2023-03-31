@@ -10,7 +10,7 @@ export default class App extends React.Component {
           {
             name: 'Organize Garage',
             id: 1528817077286, // could look different, you could use a timestamp to generate it
-            completed: true
+            completed: false
           },
           {
             name: 'Bake Cookies',
@@ -42,16 +42,27 @@ export default class App extends React.Component {
     });
   }
 
-  completeTask = () => {
-
+  completeTask = (clickedId) => {
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.map((todo) => {
+        if(todo.id === clickedId){
+          return {
+            ...todo,
+            completed: !todo.completed
+          }
+        } 
+        return todo;
+      })
+    })
   }
 
   render() {
     return (
       <div>
-        <TodoList todos={this.state.todos}/>
+        <TodoList completeTask={this.completeTask} todos={this.state.todos}/>
         <Form addNewTask={this.addNewTask}/>
-        <button onClick={this.hideCompleted}>Hide Completed Tasks</button>
+        <button onClick={this.hideCompleted}>Remove Completed Tasks</button>
       </div>
     )
   }
