@@ -1,7 +1,7 @@
 import React from 'react';
-// import TodoList from './TodoList';
+import TodoList from './TodoList';
 import Form from './Form';
-import Todo from './Todo';
+
 
 export default class App extends React.Component {
   constructor(){
@@ -17,7 +17,7 @@ export default class App extends React.Component {
             name: 'Bake Cookies',
             id: 1528817084358,
             completed: false
-          }
+          },
       ] 
     };
   }
@@ -27,19 +27,10 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { todos } = this.state;
-
     return (
       <div>
         <h1>Todos:</h1>
-        <ul>
-          {
-            todos.map(todo => {
-              return (<Todo todo={todo}/>)
-            })
-          }
-        </ul>
-        {/* <TodoList /> */}
+        <TodoList todos={this.state.todos}/>
         <Form />
         <button>Hide Completed Tasks</button>
       </div>
