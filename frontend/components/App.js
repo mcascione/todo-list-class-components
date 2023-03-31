@@ -21,7 +21,28 @@ export default class App extends React.Component {
     };
   }
 
-  submitNewTask = () => {
+  hideCompleted = () => {
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.filter(todo => {
+        return (!todo.completed);
+      })
+    })
+  }
+
+  addNewTask = (name) => {
+    const newTodo = {
+      name:name,
+      id: Date.now(),
+      completed: false
+    }
+    this.setState({
+      ...this.state,
+      todos: [...this.state.todos, newTodo]
+    });
+  }
+
+  completeTask = () => {
 
   }
 
@@ -29,8 +50,8 @@ export default class App extends React.Component {
     return (
       <div>
         <TodoList todos={this.state.todos}/>
-        <Form />
-        <button>Hide Completed Tasks</button>
+        <Form addNewTask={this.addNewTask}/>
+        <button onClick={this.hideCompleted}>Hide Completed Tasks</button>
       </div>
     )
   }
