@@ -7,7 +7,18 @@ export default class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      message: "" //update this later
+      todos: [
+          {
+            name: 'Organize Garage',
+            id: 1528817077286, // could look different, you could use a timestamp to generate it
+            completed: true
+          },
+          {
+            name: 'Bake Cookies',
+            id: 1528817084358,
+            completed: false
+          }
+      ] 
     };
   }
 
@@ -15,16 +26,18 @@ export default class App extends React.Component {
 
   }
 
-
-
   render() {
+    const { todos } = this.state;
+
     return (
       <div>
         <h1>Todos:</h1>
         <ul>
-          <li>Complete your Homework</li>
-          <li>Do the Laundry</li>
-          <li>Exercise!</li>
+          {
+            todos.map(todo => {
+              return (<li>{todo.name}{ todo.completed?<span> - You did it!</span>:<span></span> }</li>)
+            })
+          }
         </ul>
         {/* <TodoList />
         <Todo /> */}
