@@ -9,7 +9,7 @@ export default class App extends React.Component {
       todos: [
           {
             name: 'Organize Garage',
-            id: 1528817077286, // could look different, you could use a timestamp to generate it
+            id: 1528817077286, 
             completed: false
           },
           {
@@ -59,10 +59,15 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='todo'>
+        <h1>What Are You Doing Today?</h1>
+        <hr />
         <TodoList completeTask={this.completeTask} todos={this.state.todos}/>
+        <hr />
+        <div id='controls'>
         <Form addNewTask={this.addNewTask}/>
-        <button onClick={this.hideCompleted}>Remove Completed Tasks</button>
+        <button className='remove-button' onClick={this.hideCompleted}>Remove Completed Tasks</button>
+        </div>
       </div>
     )
   }

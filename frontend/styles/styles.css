@@ -5,7 +5,11 @@
 
 body::after {
   content: "";
-  background: url('../images/Light-Gradient.jpeg');
+  background: linear-gradient(
+    90deg,
+    #22A699 0%,
+    #F2BE22 100%
+  );
   opacity: 0.1;
   top: 0;
   left: 0;
@@ -20,10 +24,37 @@ body, input, button {
   color: #484848;
 }
 
+
 #root, #wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 128px auto;
+  border-radius: 10px;
+  padding-bottom: 32px;
+  background: url('../images/Light-Gradient.jpeg');
+  width: 520px;
+  justify-content: start;
+  min-height: 600px;
+  text-align:justify;
+}
+
+#controls {
+  display: grid;
+  justify-content: center;
+}
+
+button {
+  background: 
+    #93005bab;
+  color: blanchedalmond;
+  border-radius: 10px;
+  border: none;
+  margin-left:4px;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 h1, h2, h3 {
@@ -34,6 +65,7 @@ h1, h2, h3 {
 h1 {
   font-size: 1.75rem;
   line-height: 5rem;
+  margin-top: 10px;
 }
 
 h2 {
@@ -44,6 +76,17 @@ h2 {
 h3 {
   font-size: 0.75rem;
   line-height: 2rem;
+}
+
+hr {
+  border-color: #F2BE22;
+}
+
+input {
+  background: #f859aed0 ;
+  border-radius: 10px;
+  border-color: blanchedalmond;
+  color: blanchedalmond;
 }
 
 nav {
@@ -77,10 +120,36 @@ ul, form {
   list-style-type: circle;
 }
 
+li {
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px 0px 4px 0px;
+    color: #93005a;
+    background: linear-gradient(
+      90deg,
+      #f859ae 20%,
+      #f5dccfee 80%
+    );
+    padding: 16px;
+    border-radius: 5px;
+    width: 100%;
+  
+}
+
+.add-button {
+  padding: 2px 8px 2px 8px;
+}
+
+.remove-button {
+  margin: 0px;
+  padding: 12px;
+}
+
 .todo {
   padding: 0.15rem;
 }
 
 .todo:hover {
-  cursor: pointer;
+  cursor:pointer;
 }

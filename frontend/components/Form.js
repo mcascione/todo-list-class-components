@@ -28,7 +28,7 @@ export default class Form extends React.Component {
       <div>
         <form>
           <input type="text" value={this.state.input} onChange={this.handleChange}/>
-          <button onClick={this.handleSubmit}>Add to List</button>
+          <button className="add-button" onClick={this.handleSubmit}>Add to List</button>
         </form> 
       </div>
     )
